@@ -1,0 +1,10 @@
+from django.test import TestCase
+from django.urls import reverse
+
+
+class HomePageTests(TestCase):
+    def test_home_page_is_available(self):
+        response = self.client.get(reverse("pages:home"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Budget Manager")
